@@ -33,7 +33,7 @@ jobs:
       - name: Build image
         run: |
           cd matlab-batch-image
-          docker build --build-arg -t ${{ secrets.DOCKERHUB_USERNAME }}/matlab-batch:latest -t ${{ secrets.DOCKERHUB_USERNAME }}/matlab-batch:${{ steps.semver.outputs.next }} .
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/matlab-batch:latest -t ${{ secrets.DOCKERHUB_USERNAME }}/matlab-batch:${{ steps.semver.outputs.next }} .
 
       - name: Publish image
         run: docker push --all-tags ${{ secrets.DOCKERHUB_USERNAME }}/matlab-batch
