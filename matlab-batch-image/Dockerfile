@@ -18,6 +18,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     wget \
     unzip \
     ca-certificates \
+    git-all \
     && apt-get clean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
@@ -36,7 +37,6 @@ RUN wget -q https://www.mathworks.com/mpm/glnxa64/mpm \
 
 # Install the matlab-batch executable which handles batch token licensing
 RUN wget -qO- --retry-connrefused https://ssd.mathworks.com/supportfiles/ci/matlab-batch/v0/install.sh | bash -s
-
 
 # Add "matlab" user and grant sudo permission.
 RUN adduser --shell /bin/bash --disabled-password --gecos "" matlab \
