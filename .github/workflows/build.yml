@@ -2,7 +2,7 @@ name: Build
 # 
 on: 
     push:
-        branches: ["main"]
+        branches: ["main", "use-install-opts"]
     schedule:
       - cron: "* */8 * * *" # Every 8 hours
 
@@ -39,5 +39,6 @@ jobs:
             -t ${{ secrets.DOCKERHUB_USERNAME }}/matlab-batch:${{ steps.semver.outputs.next }} .
 
       - name: Publish image
+        if: github.ref == 'refs/heads/main'
         run: docker push --all-tags ${{ secrets.DOCKERHUB_USERNAME }}/matlab-batch
 
