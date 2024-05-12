@@ -81,7 +81,7 @@ product.Curve_Fitting_Toolbox
 product.DDS_Blockset
 product.DSP_HDL_Toolbox
 product.DSP_System_Toolbox
-product.Data_Acquisition_Toolbox
+#product.Data_Acquisition_Toolbox
 product.Database_Toolbox
 product.Datafeed_Toolbox
 product.Deep_Learning_HDL_Toolbox
@@ -116,7 +116,7 @@ product.Mapping_Toolbox
 product.Medical_Imaging_Toolbox
 product.Mixed-Signal_Blockset
 product.Model_Predictive_Control_Toolbox
-product.Model-Based_Calibration_Toolbox
+#product.Model-Based_Calibration_Toolbox
 product.Motor_Control_Blockset
 product.Navigation_Toolbox
 product.Optimization_Toolbox
