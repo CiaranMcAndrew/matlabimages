@@ -169,7 +169,7 @@ product.Simulink_Real-Time
 product.Simulink_Report_Generator
 product.Simulink_Test
 product.SoC_Blockset
-product.Spreadsheet_Link
+#product.Spreadsheet_Link
 product.Stateflow
 product.Statistics_and_Machine_Learning_Toolbox
 product.Symbolic_Math_Toolbox
