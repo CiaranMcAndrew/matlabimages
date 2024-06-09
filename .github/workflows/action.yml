@@ -48,4 +48,4 @@ jobs:
             -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ inputs.name }}:${{ steps.semver.outputs.next }} .
 
       - name: Publish image
-        run: docker push --all-tags ${{ secrets.DOCKERHUB_USERNAME }}/{{ inputs.name }}
+        run: docker push --all-tags ${{ secrets.DOCKERHUB_USERNAME }}/${{ inputs.name }}
