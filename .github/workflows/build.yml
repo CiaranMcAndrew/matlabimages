@@ -19,7 +19,7 @@ jobs:
   build-matlab-proxy-image:
     uses: ./.github/workflows/action.yml
     with: 
-      directory: "matlab-proxy-image"
+      directory: "matlab-proxy"
       name: "matlab-proxy"
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
