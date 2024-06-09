@@ -12,13 +12,18 @@ jobs:
     with: 
       directory: "matlab-batch-image"
       name: "matlab-batch"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   build-matlab-proxy-image:
     uses: ./.github/workflows/action.yml
     with: 
       directory: "matlab-proxy-image"
       name: "matlab-proxy"
-
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
       # - name: Build image
       #   run: |
       #     cd matlab-batch-image
