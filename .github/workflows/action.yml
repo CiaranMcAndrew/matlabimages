@@ -1,0 +1,46 @@
+on:
+    workflow_call:
+        inputs:
+            directory:
+                description: "Working directory"
+                required: true
+                default: "."
+                type: string
+            name:
+                description: "Image name"
+                required: true
+                type: string
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Get Next Version
+        id: semver
+        uses: ietf-tools/semver-action@v1
+        with:
+          token: ${{ github.token }}
+          branch: main
+
+      - name: "Created tag"
+        run: echo "tag ${{ steps.semver.outputs.next }}"
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build image
+        run: |
+          cd ${{ inputs.directory }}
+          docker build \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ inputs.name }}:latest \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ inputs.name }}:${{ steps.semver.outputs.next }} .
+
+      - name: Publish image
+        run: docker push --all-tags ${{ secrets.DOCKERHUB_USERNAME }}/{{ inputs.name }}
