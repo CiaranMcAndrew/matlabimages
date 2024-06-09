@@ -1,15 +1,20 @@
 on:
-    workflow_call:
-        inputs:
-            directory:
-                description: "Working directory"
-                required: true
-                default: "."
-                type: string
-            name:
-                description: "Image name"
-                required: true
-                type: string
+  workflow_call:
+    inputs:
+      directory:
+        description: "Working directory"
+        required: true
+        default: "."
+        type: string
+      name:
+        description: "Image name"
+        required: true
+        type: string
+    secrets:
+      DOCKERHUB_USERNAME:
+        required: true
+      DOCKERHUB_TOKEN:
+        required: true
 
 jobs:
   build:
