@@ -31,5 +31,12 @@ jobs:
       #       -t ${{ secrets.DOCKERHUB_USERNAME }}/matlab-batch:latest \
       #       --build-arg MATLAB_RELEASE=r2024a \
       #       -t ${{ secrets.DOCKERHUB_USERNAME }}/matlab-batch:${{ steps.semver.outputs.next }} .
-
-
+  
+  build-gitlab-release-cli:
+    uses: ./.github/workflows/action.yml
+    with: 
+      directory: "gitlab-release-cli"
+      name: "gitlab-release-cli"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}

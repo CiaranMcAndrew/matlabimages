@@ -1,0 +1,1 @@
+FROM  registry.gitlab.com/gitlab-org/release-cli:latest
